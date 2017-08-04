@@ -1,23 +1,19 @@
 $(document).ready(function() {
   var seconds = 0;
-  var initialTimer = [1, 0];
-  var timer = [1, 0];
+  var initialTimer = [25, 0];
+  var timer = [25, 0];
   var timerContainer = $('#clockTime');
 
   // Handle the sound player
   var playsound = function(){
-    var audio = new Audio('audio_file.mp3');
+    var audio = new Audio('stop.wav');
     audio.play();
   };
 
   // Handle the display on the screen
   var handleTimerDisplay = function(timer) {
-    var msg;
     if (timer === 'stop') {
-      msg = 'BREAK';
-      console.log(msg);
-      timerContainer.text(msg);
-      //playsound();
+      playsound();
     } else {
       var newTimer = [];
       var sanetizeNumber = function(num){
@@ -29,17 +25,15 @@ $(document).ready(function() {
       }
       newTimer[0] = sanetizeNumber(timer[0]);
       newTimer[1] = sanetizeNumber(timer[1]);
-      msg = newTimer.join(':');
-      timerContainer.text(msg);
+      timerContainer.text(newTimer.join(':'));
     }
   };
 
   var handleTimer = 0;
   var counter = function() {
     if (timer[0] === 0 && timer[1] === 0) {
-      console.log('stop');
-      handleTimerDisplay('stop');
       clearInterval(handleTimer);
+      handleTimerDisplay('stop');
     } else if (timer[1] === 0) {
       timer[1] = 60
       timer[0] -= 1
