@@ -51,6 +51,7 @@ $(document).ready(function() {
     $('.start-button').on('click', function() {
       $('.fa-play').toggleClass('hidden');
       $('.fa-pause').toggleClass('hidden');
+      $('.text-explanation').toggleClass('hidden');
       if ($('.fa-play').hasClass('hidden')) {
         handleTimer = setInterval(counter, 1000)
       } else {
@@ -64,6 +65,8 @@ $(document).ready(function() {
     $('.stop-button').on('click', function() {
       $('.fa-play').removeClass('hidden');
       $('.fa-pause').addClass('hidden');
+      $('.text-explanation.play').removeClass('hidden');
+      $('.text-explanation.pause').addClass('hidden');
       seconds = 0;
       handleTimerDisplay(initialTimer);
       clearInterval(handleTimer);
