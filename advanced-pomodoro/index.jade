@@ -10,14 +10,43 @@ head
   link(rel="stylesheet", href="style.css")
 body
 
-  h1.text-center Pomodoro Clock
   .container
-        
-    hr
+    .main-title
+      h1.text-center Pomodoro Clock
+      //img.tomato(src="tomato-min.jpg", alt="Tomato from above")
       
-
-
+    main  
+      .main-button
+        .start-button.control-button(title="Click here to start the timer")
+          i.fa.fa-play
+        .stop-button.control-button.hidden(title="Click here to stop and reset the timer")
+          i.fa.fa-stop
+      .main-timer(data-value="100")
+        h2#timer 25:00
+        .control-wrapper
+          i.fa.fa-pause
+          i.fa.fa-play.hidden
+        
+      .counters-container
+        .break-counter.counter
+          h4.timer#break-timer 5
+          a(href="#").add.control-button
+            i.fa.fa-plus
+          a(href="#").substract.control-button
+            i.fa.fa-minus
+          .icon
+            i.fa.fa-coffee
+        
+        .pomodoro-counter.counter
+          h4.timer#pomodoro-timer 25
+          a(href="#").add.control-button
+            i.fa.fa-plus
+          a(href="#").substract.control-button
+            i.fa.fa-minus
+          .icon
+            i.fa.fa-clock-o
+      
+    
+    
   script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous")
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous")
-  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous")
-  script(src="scripts.js")
+  script(src="main.js")

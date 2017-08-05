@@ -10,12 +10,32 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1 class="text-center">Pomodoro Clock</h1>
   <div class="container">
-    <hr/>
+    <div class="main-title">
+      <h1 class="text-center">Pomodoro Clock</h1>
+      <!--img.tomato(src="tomato-min.jpg", alt="Tomato from above")-->
+    </div>
+    <main> 
+      <div class="main-button">
+        <div class="start-button control-button" title="Click here to start the timer"><i class="fa fa-play"></i></div>
+        <div class="stop-button control-button hidden" title="Click here to stop and reset the timer"><i class="fa fa-stop"></i></div>
+      </div>
+      <div class="main-timer" data-value="100">
+        <h2 id="timer">25:00</h2>
+        <div class="control-wrapper"><i class="fa fa-pause"></i><i class="fa fa-play hidden"></i></div>
+      </div>
+      <div class="counters-container">
+        <div class="break-counter counter">
+          <h4 class="timer" id="break-timer">5</h4><a class="add control-button" href="#"><i class="fa fa-plus"></i></a><a class="substract control-button" href="#"><i class="fa fa-minus"></i></a>
+          <div class="icon"><i class="fa fa-coffee"></i></div>
+        </div>
+        <div class="pomodoro-counter counter">
+          <h4 class="timer" id="pomodoro-timer">25</h4><a class="add control-button" href="#"><i class="fa fa-plus"></i></a><a class="substract control-button" href="#"><i class="fa fa-minus"></i></a>
+          <div class="icon"><i class="fa fa-clock-o"></i></div>
+        </div>
+      </div>
+    </main>
   </div>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script src="scripts.js"></script>
+  <script src="main.js"></script>
 </body>

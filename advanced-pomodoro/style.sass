@@ -1,4 +1,139 @@
 @import 'normalize'
-.hidden
-  display: none
-.container
+@import 'font'
+
+$dark: #212121
+$light: #FAFAFA
+$green: #388E3C
+
+=circle($radius, $border-width, $color)
+  height: $radius
+  width: $radius
+  border-radius: 50%
+  border: $border-width solid $color
+  display: flex
+  justify-content: center
+  align-items: center
+
+
+body
+  background-color: $dark
+  color: $light
+  font-family: 'Cabin', sans-serif
+  .hidden
+    display: none!important
+  .container
+    height: 100vh
+    position: relative
+    .main-title
+      padding-top: 2rem
+      position: relative
+      h1
+        margin: 0
+        font-size: 3em
+        text-shadow: 2px 2px $dark
+      img.tomato
+        height: 150px
+        width: 150px
+        position: absolute
+        top: -50px
+        left: 50%
+        transform: translateX(-50%)
+        z-index: -1
+        opacity: 0.35
+
+    main
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+      .main-button
+        margin: 30px 0
+        display: flex
+        justify-content: center
+        align-items: center
+        .control-button
+          +circle(5.5rem, 1px, $light)
+          font-size: 2rem
+          &.start-button
+            position: relative
+            padding-left: 5px
+            i
+
+          &:hover
+            background-color: $light
+            color: $dark
+
+      .main-timer
+        margin: auto
+        position: relative
+        box-sizing: content-box
+        +circle(24rem, 2px, $green)
+        transition: 500ms ease
+        &:hover
+          cursor: pointer
+          //border-color: red
+          & > .control-wrapper
+            opacity: 0.8
+        #timer
+          font-size: 4.5rem
+        .control-wrapper
+          +circle(24rem, 0px, transparent)
+          transition: all 300ms ease-in-out
+          opacity: 0
+          position: absolute
+          &.paused
+            opacity: 0.8
+            &:hover
+              i.fa.fa-pause
+                display: none
+              i.fa.fa-play
+                display: block
+
+          i
+            font-size: 7rem
+
+      .counters-container
+        width: 30rem
+        margin: 5rem auto 0 auto
+        display: flex
+        justify-content: center
+        .counter
+          +circle(12rem, 1px, $light)
+          position: relative
+          &.break-counter
+            margin-right: 6rem
+          .timer
+            font-size: 2.5rem
+          .control-button
+            position: absolute
+            +circle(4rem, 1px, $light)
+            background-color: $dark
+            color: $light
+            text-decoration: none
+            transition: all 300ms ease-in-out
+            &:hover
+              background-color: $light
+              color: $dark
+          .add
+            right: -2rem
+          .substract
+            left: -2rem
+          .icon
+            +circle(4.5rem, 1px, $light)
+            position: absolute
+            top: -2.25rem
+            background-color: $dark
+            color: $light
+            i
+              font-size: 1.8rem
+              &.fa-clock-o
+                font-size: 2.25rem
+
+@media only screen and (max-width: 360px)
+  html
+    font-size: 8px
+
+@media only screen and (max-width: 560px)
+  html
+    font-size: 10px
