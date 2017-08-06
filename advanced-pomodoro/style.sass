@@ -25,9 +25,35 @@ body
   .container
     height: 100vh
     position: relative
+    .modalToggler
+      +circle(2rem, 1px, $light)
+      background-color: $light
+      color: $dark
+      cursor: pointer
+      transition: 300ms ease-in-out
+      z-index: 10000
+      position: absolute
+      top: 20px
+      right: 20px
+      &:hover
+        background-color: $dark
+        color: $light
+    #help.modal
+      z-index: 20000
+      color: $dark
+      .modal-header
+        h4#helpModalLabel
+          width: 100%
+          text-align: center
+          color: lighten($dark, 25)
+      .modal-body
+
+
+
     .main-title
       padding-top: 2rem
       position: relative
+      z-index: -10
       h1
         margin: 0
         font-size: 3em

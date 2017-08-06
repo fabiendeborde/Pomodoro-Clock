@@ -439,9 +439,42 @@ body {
   body .container {
     height: 100vh;
     position: relative; }
+    body .container .modalToggler {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      border: 1px solid #FAFAFA;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #FAFAFA;
+      color: #212121;
+      cursor: pointer;
+      transition: 300ms ease-in-out;
+      z-index: 10000;
+      position: absolute;
+      top: 20px;
+      right: 20px; }
+      body .container .modalToggler:hover {
+        background-color: #212121;
+        color: #FAFAFA; }
+    body .container #help.modal {
+      z-index: 20000;
+      color: #212121; }
+      body .container #help.modal .modal-header h4#helpModalLabel {
+        width: 100%;
+        text-align: center;
+        color: #616161; }
     body .container .main-title {
       padding-top: 2rem;
-      position: relative; }
+      position: relative;
+      z-index: -10; }
       body .container .main-title h1 {
         margin: 0;
         font-size: 3em;

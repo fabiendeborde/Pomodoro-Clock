@@ -1,4 +1,23 @@
 $(document).ready(function() {
+
+  var addTwitterJS = function() {
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+      return t;
+    }(document, "script", "twitter-wjs"));
+  }();
+
   var timer = new Object();
   // Keep the first green value safely
   timer.originalColor = 100;
@@ -175,7 +194,7 @@ $(document).ready(function() {
 
   // Click event handler on the Play/Pause/Stop controllers
   // Changes the states of the timer
-  $('.main-button').on('click', function() {
+  $('.main-button .control-button').on('click', function() {
     if (timer.state === 'stopped') {
       timer.handleState.count();
     } else if (timer.state === 'counting') {
