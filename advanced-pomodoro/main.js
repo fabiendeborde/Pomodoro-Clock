@@ -9,7 +9,7 @@ $(document).ready(function() {
   // Timer global state (stopped, counting, paused)
   timer.state = 'stopped';
   // Time left array (min, s)
-  timer.timeLeft = [1, 0];
+  timer.timeLeft = [0, 0];
   // Keep track of the seconds elapsed
   timer.seconds = 0;
   // Handles the numbers < 10 to display with a 0 before
@@ -113,7 +113,6 @@ $(document).ready(function() {
       }
       timer.displayCounter(timer[counter + 'Container'], timer[counter]);
     }
-    console.log(timer[counter]);
   };
 
   // Handles the display of the small counters
