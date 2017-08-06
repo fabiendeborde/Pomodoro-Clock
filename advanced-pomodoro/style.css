@@ -537,12 +537,20 @@ body {
           transition: all 300ms ease-in-out;
           opacity: 0;
           position: absolute; }
+          body .container main .main-timer .control-wrapper i.fa.fa-play {
+            padding-left: 15px; }
           body .container main .main-timer .control-wrapper.paused {
             opacity: 0.8; }
             body .container main .main-timer .control-wrapper.paused:hover i.fa.fa-pause {
               display: none; }
             body .container main .main-timer .control-wrapper.paused:hover i.fa.fa-play {
               display: block; }
+          body .container main .main-timer .control-wrapper.stopped {
+            opacity: 0.5; }
+            body .container main .main-timer .control-wrapper.stopped i.fa.fa-pause {
+              display: none; }
+            body .container main .main-timer .control-wrapper.stopped:hover i.fa.fa-play {
+              display: block !important; }
           body .container main .main-timer .control-wrapper i {
             font-size: 7rem; }
       body .container main .counters-container {

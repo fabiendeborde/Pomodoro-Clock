@@ -16,14 +16,14 @@ body
       //img.tomato(src="tomato-min.jpg", alt="Tomato from above")
       
     main  
-      .main-button
+      .main-button.main-controls
         .start-button.control-button(title="Click here to start the timer")
           i.fa.fa-play
         .stop-button.control-button.hidden(title="Click here to stop and reset the timer")
           i.fa.fa-stop
       .main-timer(data-value="100")
         h2#timer 25:00
-        .control-wrapper
+        .control-wrapper.main-controls.stopped
           i.fa.fa-pause
           i.fa.fa-play.hidden
         
