@@ -45,7 +45,7 @@ $(document).ready(function() {
   // Keep track of the seconds elapsed
   timer.seconds = 0;
   timer.totalSeconds = timer.pomodoroTime * 60;
-  
+
   // Stop the timer and reset it
   timer.resetTimer = function() {
     timer.state = 'stopped';
@@ -58,13 +58,11 @@ $(document).ready(function() {
     $('.pomodoro-counter .icon').removeClass('active');
     $('.pomodoro-counter .icon').removeClass('active')
   };
-
   // Start the timer
   timer.start = function() {
     timer.state = 'counting';
     timer.handleTimer = setInterval(timer.count, 1000);
   };
-
   // Pause the timer
   timer.pause = function() {
     timer.state = 'paused';
