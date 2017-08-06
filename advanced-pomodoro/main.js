@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  // Add Twitter widget library
   var addTwitterJS = function() {
     window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
@@ -19,10 +19,6 @@ $(document).ready(function() {
   }();
 
   var timer = new Object();
-  // Keep the first green value safely
-  timer.originalColor = 100;
-  // Green value that will change during the timer counting
-  timer.green = 100;
   timer.handleTimer = 0;
   // Timer global state (stopped, counting, paused)
   timer.state = 'stopped';
