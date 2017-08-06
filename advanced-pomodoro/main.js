@@ -8,10 +8,9 @@ $(document).ready(function() {
   timer.handleTimer = 0;
   // Timer global state (stopped, counting, paused)
   timer.state = 'stopped';
-  // Time left array (min, s)
-  timer.timeLeft = [0, 0];
-  // Keep track of the seconds elapsed
-  timer.seconds = 0;
+  // Timer current phase (work or break)
+  timer.phase = true;
+
   // Handles the numbers < 10 to display with a 0 before
   timer.sanetizeNumber = function(num){
     if (num < 10) {
@@ -26,7 +25,11 @@ $(document).ready(function() {
   timer.breakTimeContainer = $('#break-timer');
   timer.breakTime = 5;
   timer.pomodoroTimeContainer = $('#pomodoro-timer');
-  timer.pomodoroTime = timer.timeLeft[0];
+  timer.pomodoroTime = 1;
+  // Time left array (min, s)
+  timer.timeLeft = [timer.pomodoroTime, 0];
+  // Keep track of the seconds elapsed
+  timer.seconds = 0;
 
   // Stop the timer and reset it
   timer.resetTimer = function() {
@@ -60,8 +63,16 @@ $(document).ready(function() {
     //timer.changeTimerBorderColor(timer.green);
     //timer.green -= 1;
     if (timer.timeLeft[0] === 0 && timer.timeLeft[1] === 0) {
-      clearInterval(timer.handleTimer);
-      timer.state = 'done';
+      if (timer.phase) {
+        timer.timeLeft = [timer.breakTime, 0];
+        timer.seconds = 0;
+        timer.playsound('stop');
+      } else {
+        timer.timeLeft = [timer.pomodoroTime, 0];
+        timer.seconds = 0;
+        timer.playsound('gong');
+      }
+      timer.phase = !timer.phase;
     } else if (timer.timeLeft[1] === 0) {
       timer.timeLeft[1] = 60
       timer.timeLeft[0] -= 1
@@ -78,8 +89,8 @@ $(document).ready(function() {
   }
 
   // Handles the sound playing when the timer reach 0
-  timer.playsound = function(){
-    var audio = new Audio('stop.wav');
+  timer.playsound = function(name){
+    var audio = new Audio(name + '.wav');
     audio.play();
   }
 
@@ -122,15 +133,10 @@ $(document).ready(function() {
 
   // Handles the display of the main timer
   timer.handleTimerDisplay = function(timeLeft, timerState) {
-    if (timer.state === 'done') {
-      timer.playsound();
-      console.log('done');
-    } else {
-      var newTimer = [];
-      newTimer[0] = timer.sanetizeNumber(timeLeft[0]);
-      newTimer[1] = timer.sanetizeNumber(timeLeft[1]);
-      timer.mainContainer.text(newTimer.join(':'));
-    }
+    var newTimer = [];
+    newTimer[0] = timer.sanetizeNumber(timeLeft[0]);
+    newTimer[1] = timer.sanetizeNumber(timeLeft[1]);
+    timer.mainContainer.text(newTimer.join(':'));
   };
 
   // Handles the 3 states of the timer (playing, paused, stopped)
