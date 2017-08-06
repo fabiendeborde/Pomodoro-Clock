@@ -446,17 +446,6 @@ body {
         margin: 0;
         font-size: 3em;
         text-shadow: 2px 2px #212121; }
-      body .container .main-title img.tomato {
-        height: 150px;
-        width: 150px;
-        position: absolute;
-        top: -50px;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-        z-index: -1;
-        opacity: 0.35; }
     body .container main {
       position: absolute;
       top: 50%;
@@ -503,7 +492,7 @@ body {
         height: 24rem;
         width: 24rem;
         border-radius: 50%;
-        border: 2px solid #388E3C;
+        border: 2px solid #338e06;
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
@@ -625,6 +614,9 @@ body {
             top: -2.25rem;
             background-color: #212121;
             color: #FAFAFA; }
+            body .container main .counters-container .counter .icon.active {
+              background-color: #FAFAFA;
+              color: #212121; }
             body .container main .counters-container .counter .icon i {
               font-size: 1.8rem; }
               body .container main .counters-container .counter .icon i.fa-clock-o {

@@ -3,7 +3,8 @@
 
 $dark: #212121
 $light: #FAFAFA
-$green: #388E3C
+$green: hsl(100, 91.9%, 29%)
+//#388E3C
 
 =circle($radius, $border-width, $color)
   height: $radius
@@ -31,15 +32,6 @@ body
         margin: 0
         font-size: 3em
         text-shadow: 2px 2px $dark
-      img.tomato
-        height: 150px
-        width: 150px
-        position: absolute
-        top: -50px
-        left: 50%
-        transform: translateX(-50%)
-        z-index: -1
-        opacity: 0.35
 
     main
       position: absolute
@@ -131,6 +123,9 @@ body
             top: -2.25rem
             background-color: $dark
             color: $light
+            &.active
+              background-color: $light
+              color: $dark
             i
               font-size: 1.8rem
               &.fa-clock-o

@@ -1,10 +1,9 @@
 $(document).ready(function() {
-
   var timer = new Object();
   // Keep the first green value safely
-  timer.originalColor = 98;
+  timer.originalColor = 100;
   // Green value that will change during the timer counting
-  timer.green = 98;
+  timer.green = 100;
   timer.handleTimer = 0;
   // Timer global state (stopped, counting, paused)
   timer.state = 'stopped';
@@ -23,17 +22,18 @@ $(document).ready(function() {
   // Main containers elements and default value
   timer.mainContainer = $('#timer');
   timer.breakTimeContainer = $('#break-timer');
-  timer.breakTime = 5;
+  timer.breakTime = 1;
   timer.pomodoroTimeContainer = $('#pomodoro-timer');
   timer.pomodoroTime = 1;
   // Time left array (min, s)
   timer.timeLeft = [timer.pomodoroTime, 0];
   // Keep track of the seconds elapsed
   timer.seconds = 0;
+  timer.totalSeconds = timer.pomodoroTime * 60;
+  timer.percent = 0;
 
   // Stop the timer and reset it
   timer.resetTimer = function() {
-    console.log('stop');
     timer.state = 'stopped';
     clearInterval(timer.handleTimer);
     timer.timeLeft = [timer.pomodoroTime, 0];
@@ -41,33 +41,39 @@ $(document).ready(function() {
     timer.handleTimerDisplay(timer.timeLeft, timer.state);
     timer.green = timer.originalColor;
     timer.changeTimerBorderColor(timer.green);
+    $('.pomodoro-counter .icon').removeClass('active');
+    $('.pomodoro-counter .icon').removeClass('active')
   };
 
   // Start the timer
   timer.start = function() {
-    console.log('counting');
     timer.state = 'counting';
     timer.handleTimer = setInterval(timer.count, 1000);
   };
 
   // Pause the timer
   timer.pause = function() {
-    console.log('pausing');
     timer.state = 'paused';
     clearInterval(timer.handleTimer);
   };
 
   // Handles the timer counting function
   timer.count = function() {
-    console.log(timer.seconds);
-    //timer.changeTimerBorderColor(timer.green);
-    //timer.green -= 1;
+    if (timer.phase) {
+      $('.pomodoro-counter .icon').addClass('active');
+      $('.break-counter .icon').removeClass('active');
+    } else {
+      $('.pomodoro-counter .icon').removeClass('active');
+      $('.break-counter .icon').addClass('active');
+    }
     if (timer.timeLeft[0] === 0 && timer.timeLeft[1] === 0) {
       if (timer.phase) {
+        timer.totalSeconds = timer.breakTime * 60;
         timer.timeLeft = [timer.breakTime, 0];
         timer.seconds = 0;
         timer.playsound('stop');
       } else {
+        timer.totalSeconds = timer.pomodoroTime * 60;
         timer.timeLeft = [timer.pomodoroTime, 0];
         timer.seconds = 0;
         timer.playsound('gong');
@@ -82,10 +88,8 @@ $(document).ready(function() {
     }
     timer.seconds += 1
     timer.handleTimerDisplay(timer.timeLeft);
-    // if (timer.green === 0) {
-    //   timer.pause();
-    //   timer.reset();
-    // }
+    var percentLeft = 100 - ((timer.seconds * 100) / timer.totalSeconds);
+    timer.changeTimerBorderColor(percentLeft);
   }
 
   // Handles the sound playing when the timer reach 0
@@ -122,6 +126,7 @@ $(document).ready(function() {
         }
         timer.handleTimerDisplay(timer.timeLeft)
       }
+      timer.totalSeconds = timer[counter] * 60;
       timer.displayCounter(timer[counter + 'Container'], timer[counter]);
     }
   };
