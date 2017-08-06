@@ -28,9 +28,6 @@ $(document).ready(function() {
   timer.pomodoroTimeContainer = $('#pomodoro-timer');
   timer.pomodoroTime = timer.timeLeft[0];
 
-  // Handle the small counters counting function
-  // Update only if the timer is stopped
-
   // Stop the timer and reset it
   timer.resetTimer = function() {
     console.log('stop');
@@ -92,6 +89,8 @@ $(document).ready(function() {
     $('.main-timer').css({'border-color': hsl})
   };
 
+  // Handle the small counters counting function
+  // Update only if the timer is stopped
   // Update the main timer when updating the pomodoro-timer
   timer.changeTime = function(counter, operation) {
     if (timer.state !== 'stopped') {
