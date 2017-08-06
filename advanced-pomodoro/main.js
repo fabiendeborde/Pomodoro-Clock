@@ -22,9 +22,9 @@ $(document).ready(function() {
   // Main containers elements and default value
   timer.mainContainer = $('#timer');
   timer.breakTimeContainer = $('#break-timer');
-  timer.breakTime = 1;
+  timer.breakTime = 5;
   timer.pomodoroTimeContainer = $('#pomodoro-timer');
-  timer.pomodoroTime = 1;
+  timer.pomodoroTime = 25;
   // Time left array (min, s)
   timer.timeLeft = [timer.pomodoroTime, 0];
   // Keep track of the seconds elapsed
