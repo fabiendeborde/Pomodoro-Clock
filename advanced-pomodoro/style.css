@@ -662,3 +662,15 @@ body {
 @media only screen and (max-width: 560px) {
   html {
     font-size: 10px; } }
+
+@media only screen and (max-width: 768px) {
+  html body .container .modalToggler:hover {
+    background-color: #FAFAFA;
+    color: #212121; }
+  html body .container main .main-button .control-button:hover {
+    background-color: #212121;
+    color: #FAFAFA; }
+  html body .container main .main-timer:hover > .control-wrapper {
+    opacity: 0; }
+  html body .container main .main-timer .control-wrapper {
+    transition: none; } }

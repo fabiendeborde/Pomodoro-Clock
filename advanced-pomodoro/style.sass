@@ -48,8 +48,6 @@ body
           color: lighten($dark, 25)
       .modal-body
 
-
-
     .main-title
       padding-top: 2rem
       position: relative
@@ -64,7 +62,6 @@ body
       top: 50%
       left: 50%
       transform: translate(-50%, -50%)
-
       .main-button
         margin: 30px 0
         display: flex
@@ -164,3 +161,19 @@ body
 @media only screen and (max-width: 560px)
   html
     font-size: 10px
+
+@media only screen and (max-width: 768px)
+  html body .container
+    .modalToggler:hover
+      background-color: $light
+      color: $dark
+    main
+      .main-button
+        .control-button:hover
+          background-color: $dark
+          color: $light
+      .main-timer
+        &:hover > .control-wrapper
+          opacity: 0
+        .control-wrapper
+          transition: none
