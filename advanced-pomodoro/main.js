@@ -9,7 +9,7 @@ $(document).ready(function() {
   // Timer global state (stopped, counting, paused)
   timer.state = 'stopped';
   // Time left array (min, s)
-  timer.timeLeft = [25, 0];
+  timer.timeLeft = [1, 0];
   // Keep track of the seconds elapsed
   timer.seconds = 0;
   // Handles the numbers < 10 to display with a 0 before
@@ -98,19 +98,22 @@ $(document).ready(function() {
     } else {
       if (operation === 'add') {
         timer[counter] += 1;
-      } else if (operation === 'sub') {
+      } else if (operation === 'sub' && timer[counter] !== 0) {
         timer[counter] -= 1;
       }
       if (counter === 'pomodoroTime') {
         if (operation === 'add') {
           timer.timeLeft[0] += 1;
-        } else if (operation === 'sub') {
+        } else if (operation === 'sub' && timer[counter] > 0) {
           timer.timeLeft[0] -= 1;
+        } else if (operation === 'sub' && timer[counter] === 0) {
+          timer.timeLeft[0] = 0;
         }
         timer.handleTimerDisplay(timer.timeLeft)
       }
       timer.displayCounter(timer[counter + 'Container'], timer[counter]);
     }
+    console.log(timer[counter]);
   };
 
   // Handles the display of the small counters
