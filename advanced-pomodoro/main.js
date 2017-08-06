@@ -45,8 +45,7 @@ $(document).ready(function() {
   // Keep track of the seconds elapsed
   timer.seconds = 0;
   timer.totalSeconds = timer.pomodoroTime * 60;
-  timer.percent = 0;
-
+  
   // Stop the timer and reset it
   timer.resetTimer = function() {
     timer.state = 'stopped';
