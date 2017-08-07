@@ -1,55 +1,79 @@
 <!DOCTYPE html>
-<html lang="en"></html>
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <title>Pomodoro Clock</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
-  <script src="https://use.fontawesome.com/6af8722801.js"></script>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-  <div class="container">
-    <div class="modalToggler" data-toggle="modal" data-target="#help"><i class="fa fa-question"></i></div>
-    <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="helpModalLabel">About this App</h4>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Simple Pomodoro Clock | Be more effective</title>
+    <meta name="description" content="Slick Pomodoro clock, just set your phases duration and launch it, the clock will do the rest!"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+    <script src="https://use.fontawesome.com/6af8722801.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="modalToggler" data-toggle="modal" data-target="#help"><i class="fa fa-question"></i></div>
+      <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="helpModalLabel">About this App</h4>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+              <h5>What is this app?</h5>
+              <p>This Pomodoro Clock is based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro Technique.</a><br/>It is a time management technique developed by Francesco Cirillo in the late 1980s.<br/>
+                The timer has 2 phases, usually a 25 minutes work phase , and a 5 minutes break phase.
+                Theses phases are called pomodoros.
+              </p>
+              <h5>How to use the clock?</h5>
+              <ul>
+                <li>First, set the <em>work </em>and <em>break </em>duration using the <i class="fa fa-plus-circle"></i>and<i class="fa fa-minus-circle"></i>on the bottom counters.</li>
+                <li>Then start the clock using either the main <i class="fa fa-play-circle"></i>button, or by clicking on the clock.</li>
+                <li>You can pause the clock by clicking on the clock.</li>
+                <li>Clicking the <i class="fa fa-stop-circle"></i>button will stop and reset the clock.</li>
+                <li>When a phase is finished, the clock automatically switch to the next phase.<br/>
+                  You can see in which phase you are by looking at the icon above the bottom counters.
+                  The current phase is <em>white with a black icon.</em>
+                </li>
+                <li>The left counter (<i class="fa fa-coffee"></i>) represent the break phase.<br/>The right counter (<i class="fa fa-clock-o"></i>) represent the work phase.</li>
+              </ul>
+              <p class="attention small text-center"><i class="fa fa-exclamation-triangle"></i>You cannot change the phases duration once the timer has started.</p>
+              <hr/>
+              <p class="thanks small">This clock was greatly inspired by <a href="https://www.freecodecamp.org">FreeCodeCamp </a>challenges. A big thanks to their awesome courses!</p>
+            </div>
+            <div class="modal-footer"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Just%20found%20this%20Pomodoro%20Clock%20by%20@fabiendeborde%20and%20I%20like%20it!" data-size="large" hashtags="javascript, freeCodeCamp">Share on Tweeter!</a><a class="twitter-follow-button" href="https://twitter.com/fabiendeborde" data-size="large" data-show-screen-name="false" data-show-count="false">Follow me on Tweeter!</a></div>
           </div>
-          <div class="modal-body"></div>
-          <div class="modal-footer"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Just%20found%20this%20Pomodoro%20Clock%20by%20@fabiendeborde%20and%20I%20like%20it!" data-size="large" hashtags="javascript, freeCodeCamp">Share on Tweeter!</a><a class="twitter-follow-button" href="https://twitter.com/fabiendeborde" data-size="large" data-show-screen-name="false" data-show-count="false">Follow me on Tweeter!</a></div>
         </div>
       </div>
+      <div class="main-title">
+        <h1 class="text-center">Pomodoro Clock</h1>
+      </div>
+      <main> 
+        <div class="main-button main-controls">
+          <div class="start-button control-button" title="Click here to start the timer"><i class="fa fa-play"></i></div>
+          <div class="stop-button control-button hidden" title="Click here to stop and reset the timer"><i class="fa fa-stop"></i></div>
+        </div>
+        <div class="main-timer" data-value="100">
+          <h2 id="timer">25:00</h2>
+          <div class="control-wrapper main-controls stopped"><i class="fa fa-pause"></i><i class="fa fa-play hidden"></i></div>
+        </div>
+        <div class="counters-container">
+          <div class="break-counter counter">
+            <h4 class="timer" id="break-timer">5</h4><a class="add control-button" href="#"><i class="fa fa-plus"></i></a><a class="substract control-button" href="#"><i class="fa fa-minus"></i></a>
+            <div class="icon"><i class="fa fa-coffee"></i></div>
+          </div>
+          <div class="pomodoro-counter counter">
+            <h4 class="timer" id="pomodoro-timer">25</h4><a class="add control-button" href="#"><i class="fa fa-plus"></i></a><a class="substract control-button" href="#"><i class="fa fa-minus"></i></a>
+            <div class="icon"><i class="fa fa-clock-o"></i></div>
+          </div>
+        </div>
+      </main>
     </div>
-    <div class="main-title">
-      <h1 class="text-center">Pomodoro Clock</h1>
-    </div>
-    <main> 
-      <div class="main-button main-controls">
-        <div class="start-button control-button" title="Click here to start the timer"><i class="fa fa-play"></i></div>
-        <div class="stop-button control-button hidden" title="Click here to stop and reset the timer"><i class="fa fa-stop"></i></div>
-      </div>
-      <div class="main-timer" data-value="100">
-        <h2 id="timer">25:00</h2>
-        <div class="control-wrapper main-controls stopped"><i class="fa fa-pause"></i><i class="fa fa-play hidden"></i></div>
-      </div>
-      <div class="counters-container">
-        <div class="break-counter counter">
-          <h4 class="timer" id="break-timer">5</h4><a class="add control-button" href="#"><i class="fa fa-plus"></i></a><a class="substract control-button" href="#"><i class="fa fa-minus"></i></a>
-          <div class="icon"><i class="fa fa-coffee"></i></div>
-        </div>
-        <div class="pomodoro-counter counter">
-          <h4 class="timer" id="pomodoro-timer">25</h4><a class="add control-button" href="#"><i class="fa fa-plus"></i></a><a class="substract control-button" href="#"><i class="fa fa-minus"></i></a>
-          <div class="icon"><i class="fa fa-clock-o"></i></div>
-        </div>
-      </div>
-    </main>
-  </div>
+  </body>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script src="main.js"></script>
-</body>
+</html>

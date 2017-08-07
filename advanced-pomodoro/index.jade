@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 html(lang="en")
-head
-  meta(charset="UTF-8")
-  meta(name="viewport", content="width=device-width, initial-scale=1.0")
-  meta(http-equiv="X-UA-Compatible", content="ie=edge")
-  title Pomodoro Clock
-  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
-  script(src="https://use.fontawesome.com/6af8722801.js")
-  link(rel="stylesheet", href="style.css")
-body
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    
+    title Simple Pomodoro Clock | Be more effective
+    meta(name="description" content="Slick Pomodoro clock, just set your phases duration and launch it, the clock will do the rest!")
+    link(rel="icon" type="image/png" href="favicon.png")
+    
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
+    script(src="https://use.fontawesome.com/6af8722801.js")
+    link(rel="stylesheet", href="style.css")
+  body
 
-  .container
-    .modalToggler(data-toggle="modal" data-target="#help")
-      i.fa.fa-question
-    include _modal.jade
-    .main-title
-      h1.text-center Pomodoro Clock
-      
-    main  
-      .main-button.main-controls
-        .start-button.control-button(title="Click here to start the timer")
-          i.fa.fa-play
-        .stop-button.control-button.hidden(title="Click here to stop and reset the timer")
-          i.fa.fa-stop
-      .main-timer(data-value="100")
-        h2#timer 25:00
-        .control-wrapper.main-controls.stopped
-          i.fa.fa-pause
-          i.fa.fa-play.hidden
+    .container
+      .modalToggler(data-toggle="modal" data-target="#help")
+        i.fa.fa-question
+      include _modal.jade
+      .main-title
+        h1.text-center Pomodoro Clock
         
-      .counters-container
-        .break-counter.counter
-          h4.timer#break-timer 5
-          a(href="#").add.control-button
-            i.fa.fa-plus
-          a(href="#").substract.control-button
-            i.fa.fa-minus
-          .icon
-            i.fa.fa-coffee
+      main  
+        .main-button.main-controls
+          .start-button.control-button(title="Click here to start the timer")
+            i.fa.fa-play
+          .stop-button.control-button.hidden(title="Click here to stop and reset the timer")
+            i.fa.fa-stop
+        .main-timer(data-value="100")
+          h2#timer 25:00
+          .control-wrapper.main-controls.stopped
+            i.fa.fa-pause
+            i.fa.fa-play.hidden
+          
+        .counters-container
+          .break-counter.counter
+            h4.timer#break-timer 5
+            a(href="#").add.control-button
+              i.fa.fa-plus
+            a(href="#").substract.control-button
+              i.fa.fa-minus
+            .icon
+              i.fa.fa-coffee
+          
+          .pomodoro-counter.counter
+            h4.timer#pomodoro-timer 25
+            a(href="#").add.control-button
+              i.fa.fa-plus
+            a(href="#").substract.control-button
+              i.fa.fa-minus
+            .icon
+              i.fa.fa-clock-o
         
-        .pomodoro-counter.counter
-          h4.timer#pomodoro-timer 25
-          a(href="#").add.control-button
-            i.fa.fa-plus
-          a(href="#").substract.control-button
-            i.fa.fa-minus
-          .icon
-            i.fa.fa-clock-o
-      
     
     
   script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous")
