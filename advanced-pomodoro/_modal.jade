@@ -6,8 +6,52 @@
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
       .modal-body
-        
-        
+        h5 What is this app?
+        p This Pomodoro Clock is based on the 
+          a(href="https://en.wikipedia.org/wiki/Pomodoro_Technique") Pomodoro Technique.
+          br
+          | It is a time management technique developed by Francesco Cirillo in the late 1980s.
+          br
+          | The timer has 2 phases, usually a 25 minutes work phase , and a 5 minutes break phase.
+          | Theses phases are called pomodoros.
+          
+        h5 How to use the clock?
+        ul
+          li First, set the 
+            em work 
+            | and 
+            em break 
+            | duration using the 
+            i.fa.fa-plus-circle
+            | and
+            i.fa.fa-minus-circle
+            | on the bottom counters.
+          li Then start the clock using either the main 
+            i.fa.fa-play-circle
+            |button, or by clicking on the clock.
+          li You can pause the clock by clicking on the clock.
+          li Clicking the 
+            i.fa.fa-stop-circle
+            |button will stop and reset the clock.
+          li When a phase is finished, the clock automatically switch to the next phase.
+            br
+            | You can see in which phase you are by looking at the icon above the bottom counters.
+            | The current phase is 
+            em white with a black icon.
+          li The left counter (
+            i.fa.fa-coffee
+            |) represent the break phase.
+            br
+            |The right counter (
+            i.fa.fa-clock-o
+            |) represent the work phase.
+        p.attention.small.text-center
+          i.fa.fa-exclamation-triangle
+          | You cannot change the phases duration once the timer has started.
+        hr
+        p.thanks.small This clock was greatly inspired by 
+          a(href="https://www.freecodecamp.org") FreeCodeCamp 
+          | challenges. A big thanks to their awesome courses!
       .modal-footer
         a.twitter-share-button(href="https://twitter.com/intent/tweet?text=Just%20found%20this%20Pomodoro%20Clock%20by%20@fabiendeborde%20and%20I%20like%20it!", data-size="large", hashtags="javascript, freeCodeCamp") Share on Tweeter!
         a.twitter-follow-button(href="https://twitter.com/fabiendeborde", data-size="large", data-show-screen-name="false",data-show-count="false") Follow me on Tweeter!

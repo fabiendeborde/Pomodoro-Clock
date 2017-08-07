@@ -471,6 +471,12 @@ body {
         width: 100%;
         text-align: center;
         color: #616161; }
+      body .container #help.modal .modal-body i {
+        margin: 0 5px; }
+      body .container #help.modal .modal-body p.attention {
+        padding-top: 20px; }
+      body .container #help.modal .modal-body p.thanks {
+        margin: 0; }
     body .container .main-title {
       padding-top: 2rem;
       position: relative;
